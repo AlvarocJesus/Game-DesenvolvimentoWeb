@@ -174,13 +174,13 @@ function movePlayer() {
   }
 
   if (
-    character.x + character.width < winner.x ||
-    character.y + character.height < winner.y
+    character.x + character.width >= winner.x &&
+    character.y + character.height > winner.y
   ) {
-    //document.getElementById('texto').style.display = block;
-    //document.getElementById("restart").style.display = block;
+    console.log("Ganhou!");
   }
 }
+
 function colisao() {
   if (
     character.x < rect3.x + rect3.width &&
@@ -189,7 +189,7 @@ function colisao() {
     character.y + character.height > rect3.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -199,7 +199,7 @@ function colisao() {
     character.y + character.height > rect31.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -209,7 +209,7 @@ function colisao() {
     character.y + character.height > rect32.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -219,7 +219,7 @@ function colisao() {
     character.y + character.height > rect33.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -229,7 +229,7 @@ function colisao() {
     character.y + character.height > rect34.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -239,7 +239,7 @@ function colisao() {
     character.y + character.height > rect35.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -249,7 +249,7 @@ function colisao() {
     character.y + character.height > rect36.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -259,7 +259,7 @@ function colisao() {
     character.y + character.height > rect37.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -269,7 +269,7 @@ function colisao() {
     character.y + character.height > rect38.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -279,7 +279,7 @@ function colisao() {
     character.y + character.height > rect7.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -289,7 +289,7 @@ function colisao() {
     character.y + character.height > rect71.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -299,7 +299,7 @@ function colisao() {
     character.y + character.height > rect2.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -309,7 +309,7 @@ function colisao() {
     character.y + character.height > rect21.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -319,7 +319,7 @@ function colisao() {
     character.y + character.height > rect22.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -329,7 +329,7 @@ function colisao() {
     character.y + character.height > rect23.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -339,7 +339,7 @@ function colisao() {
     character.y + character.height > rect24.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -349,7 +349,7 @@ function colisao() {
     character.y + character.height > rect1.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -359,7 +359,7 @@ function colisao() {
     character.y + character.height > rect1.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -369,7 +369,7 @@ function colisao() {
     character.y + character.height > rect11.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -379,7 +379,7 @@ function colisao() {
     character.y + character.height > rect12.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -389,7 +389,7 @@ function colisao() {
     character.y + character.height > rect13.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -399,7 +399,7 @@ function colisao() {
     character.y + character.height > rect14.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -409,7 +409,7 @@ function colisao() {
     character.y + character.height > rect16.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -419,7 +419,7 @@ function colisao() {
     character.y + character.height > rect17.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
 
   if (
@@ -429,21 +429,33 @@ function colisao() {
     character.y + character.height > rect18.y
   ) {
     character.x = 15;
-    character.y = 1
+    character.y = 1;
   }
-  if (character.x < rect25.x + rect25.width &&
+  if (
+    character.x < rect25.x + rect25.width &&
     character.x + character.width > rect25.x &&
     character.y < rect25.y + rect25.height &&
-    character.y + character.height > rect25.y)
-    {character.x = 15
-    character.y = 1 }
+    character.y + character.height > rect25.y
+  ) {
+    character.x = 15;
+    character.y = 1;
+  }
 
-  if (character.x < rect5.x + rect5.width &&
+  if (
+    character.x < rect5.x + rect5.width &&
     character.x + character.width > rect5.x &&
     character.y < rect5.y + rect5.height &&
-    character.y + character.height > rect5.y)
-    {character.x = 15
-      character.y = 1}  
+    character.y + character.height > rect5.y
+  ) {
+    character.x = 15;
+    character.y = 1;
+  }
+}
+
+function points() {
+  ctx.fillStyle = "blue";
+  ctx.arc(50, 50, 15, 0, 2 * Math.PI);
+  ctx.fill();
 }
 
 function desenha() {
@@ -467,6 +479,8 @@ function desenha() {
 
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
   ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.height);
+
+  points()
 
   ctx.beginPath();
   ctx.fillStyle = "yellow";
