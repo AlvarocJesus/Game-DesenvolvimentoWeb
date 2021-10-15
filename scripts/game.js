@@ -353,19 +353,9 @@ function colisao() {
   }
 
   if (
-    character.x < rect1.x + rect1.width &&
-    character.x + character.width > rect1.x &&
-    character.y < rect1.y + rect1.height &&
-    character.y + character.height > rect1.y
-  ) {
-    character.x = 15;
-    character.y = 1;
-  }
-
-  if (
-    character.x < rect11.x + rect11.width &&
+    character.x < rect11.x + rect1.width &&
     character.x + character.width > rect11.x &&
-    character.y < rect11.y + rect11.height &&
+    character.y < rect11.y + rect1.height &&
     character.y + character.height > rect11.y
   ) {
     character.x = 15;
@@ -374,9 +364,9 @@ function colisao() {
 
   if (
     character.x < rect12.x + rect12.width &&
-    character.x + character.width > rect12.x &&
+    character.x + character.width > rect11.x &&
     character.y < rect12.y + rect12.height &&
-    character.y + character.height > rect12.y
+    character.y + character.height > rect11.y
   ) {
     character.x = 15;
     character.y = 1;
@@ -384,7 +374,7 @@ function colisao() {
 
   if (
     character.x < rect13.x + rect13.width &&
-    character.x + character.width > rect13.x &&
+    character.x + character.width > rect12.x &&
     character.y < rect13.y + rect13.height &&
     character.y + character.height > rect13.y
   ) {
@@ -394,7 +384,7 @@ function colisao() {
 
   if (
     character.x < rect14.x + rect14.width &&
-    character.x + character.width > rect14.x &&
+    character.x + character.width > rect13.x &&
     character.y < rect14.y + rect14.height &&
     character.y + character.height > rect14.y
   ) {
@@ -404,8 +394,18 @@ function colisao() {
 
   if (
     character.x < rect15.x + rect15.width &&
+    character.x + character.width > rect15.x &&
+    character.y < rect15.y + rect15.height &&
+    character.y + character.height > rect15.y
+  ) {
+    character.x = 15;
+    character.y = 1;
+  }
+
+  if (
+    character.x < rect16.x + rect16.width &&
     character.x + character.width > rect16.x &&
-    character.y < rect16.y + rect16.height &&
+    character.y < rect15.y + rect16.height &&
     character.y + character.height > rect16.y
   ) {
     character.x = 15;
