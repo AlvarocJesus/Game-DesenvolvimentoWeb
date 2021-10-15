@@ -561,8 +561,8 @@ function desenha() {
   movePlayer();
   colisao();
 
-  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
   collisionRectBackground();
+  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
 
   ctx.drawImage(
     characterImg,
