@@ -3,9 +3,7 @@ const ctx = canvas.getContext("2d");
 const characterImg = new Image();
 const backgroundImg = new Image();
 let tecla = 0;
-let ultTecla = 0;
 let pontos = 0;
-let newTecla = [];
 
 const character = {
   x: 15,
@@ -83,6 +81,46 @@ const rect15 = { x: 358, y: 44, width: 32, height: 44 };
 const rect16 = { x: 420, y: 44, width: 32, height: 44 };
 const rect17 = { x: 170, y: 44, width: 32, height: 44 };
 const rect18 = { x: 296, y: 136, width: 32, height: 44 };
+
+const point1 = {
+  x: 468,
+  y: 30,
+  radio: 10,
+  startAngle: 0,
+  finishAngle: 2 * Math.PI,
+};
+
+const point2 = {
+  x: 215,
+  y: 205,
+  radio: 10,
+  startAngle: 0,
+  finishAngle: 2 * Math.PI,
+};
+
+const point3 = {
+  x: 90,
+  y: 480,
+  radio: 10,
+  startAngle: 0,
+  finishAngle: 2 * Math.PI,
+};
+
+const point4 = {
+  x: 468,
+  y: 180,
+  radio: 10,
+  startAngle: 0,
+  finishAngle: 2 * Math.PI,
+};
+
+const point5 = {
+  x: 215,
+  y: 480,
+  radio: 10,
+  startAngle: 0,
+  finishAngle: 2 * Math.PI,
+};
 
 // Fica esperando o evento da tecla ser pressionada para salvar na variavel tecla
 document.addEventListener("keydown", (e) => {
@@ -182,6 +220,7 @@ function movePlayer() {
 }
 
 function colisao() {
+  // Colisao do personagem com o mapa
   if (
     character.x < rect3.x + rect3.width &&
     character.x + character.width > rect3.x &&
@@ -450,11 +489,67 @@ function colisao() {
     character.x = 15;
     character.y = 1;
   }
+
+  // Colisao do personagem com os pontos
+  /* if (
+    character.x < point1.x + point1.radio &&
+    character.x + character.width > point1.x - point1.radio &&
+    character.y < point1.y + point1.radio &&
+    character.y + character.height > point1.y - point1.radio
+  ) {
+    console.log((pontos += 1));
+  } */
 }
 
 function points() {
   ctx.fillStyle = "blue";
-  ctx.arc(50, 50, 15, 0, 2 * Math.PI);
+  ctx.arc(
+    point1.x,
+    point1.y,
+    point1.radio,
+    point1.startAngle,
+    point1.finishAngle
+  );
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(
+    point2.x,
+    point2.y,
+    point2.radio,
+    point2.startAngle,
+    point2.finishAngle
+  );
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(
+    point3.x,
+    point3.y,
+    point3.radio,
+    point3.startAngle,
+    point3.finishAngle
+  );
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(
+    point4.x,
+    point4.y,
+    point4.radio,
+    point4.startAngle,
+    point4.finishAngle
+  );
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(
+    point5.x,
+    point5.y,
+    point5.radio,
+    point5.startAngle,
+    point5.finishAngle
+  );
   ctx.fill();
 }
 
@@ -466,8 +561,8 @@ function desenha() {
   movePlayer();
   colisao();
 
-  collisionRectBackground();
   ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+  collisionRectBackground();
 
   ctx.drawImage(
     characterImg,
@@ -480,11 +575,13 @@ function desenha() {
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
   ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.height);
 
-  points()
+  points();
 
-  ctx.beginPath();
-  ctx.fillStyle = "yellow";
-  ctx.fillRect(winner.x, winner.y, winner.width, winner.height);
+  if (pontos === 5) {
+    ctx.beginPath();
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(winner.x, winner.y, winner.width, winner.height);
+  }
 
   window.requestAnimationFrame(desenha);
 }
