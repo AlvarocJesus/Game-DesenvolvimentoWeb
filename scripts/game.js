@@ -23,7 +23,7 @@ const enemy = {
 
 const enemy1 = {
   x: 0,
-  y: Math.random() * canvas.height,
+  y: 50,
   width: 40,
   height: 22,
 };
@@ -215,7 +215,6 @@ function movePlayer() {
     character.x + character.width >= winner.x &&
     character.y + character.height > winner.y
   ) {
-    console.log("Ganhou!");
     window.location.reload();
   }
 
@@ -227,7 +226,7 @@ function movePlayer() {
   }
 
   if (enemy1.x >= canvas.width) {
-    // enemy1.y = Math.floor(Math.random() * canvas.width);
+    enemy1.y = Math.floor(Math.random() * canvas.width);
     enemy1.x = -40;
   } else {
     enemy1.x += 4;
