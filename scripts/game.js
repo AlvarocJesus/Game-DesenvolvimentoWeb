@@ -23,7 +23,7 @@ const enemy = {
 
 const enemy1 = {
   x: 0,
-  y: (Math.random() * canvas.height),
+  y: Math.random() * canvas.height,
   width: 40,
   height: 22,
 };
@@ -220,10 +220,10 @@ function movePlayer() {
   }
 
   if (enemy.y >= canvas.height) {
-    enemy.x = Math.floor(Math.random()*canvas.width)
-    enemy.y = -40
+    enemy.x = Math.floor(Math.random() * canvas.width);
+    enemy.y = -40;
   } else {
-    enemy.y += 4
+    enemy.y += 4;
   }
 
   if (enemy1.x >= canvas.width) {
@@ -522,7 +522,7 @@ function colisao() {
     character.y < point2.y + point2.radio &&
     character.y + character.height > point2.y - point2.radio
   ) {
-    pontos += 1
+    pontos += 1;
     point2.radio = 0;
   }
 
@@ -553,7 +553,7 @@ function colisao() {
     character.y + character.height > point5.y - point5.radio
   ) {
     pontos += 1;
-    point5.radio = 0
+    point5.radio = 0;
   }
 
   // Colisao do personagem com os inimigos
@@ -649,7 +649,7 @@ function desenha() {
     character.height
   );
 
-  ctx.fillStyle = 'white'
+  ctx.fillStyle = "white";
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
   ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.height);
 
