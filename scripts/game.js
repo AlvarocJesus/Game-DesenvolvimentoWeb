@@ -15,17 +15,17 @@ const character = {
 };
 
 const enemy = {
-  x: -(Math.random() * canvas.width),
-  y: 0,
+  x: 50,
+  y: -40,
   width: 22,
   height: 40,
 };
 
 const enemy1 = {
   x: 0,
-  y: -(Math.random() * canvas.height),
-  width: 22,
-  height: 40,
+  y: (Math.random() * canvas.height),
+  width: 40,
+  height: 22,
 };
 
 const winner = {
@@ -216,6 +216,21 @@ function movePlayer() {
     character.y + character.height > winner.y
   ) {
     console.log("Ganhou!");
+    window.location.reload();
+  }
+
+  if (enemy.y >= canvas.height) {
+    enemy.x = Math.floor(Math.random()*canvas.width)
+    enemy.y = -40
+  } else {
+    enemy.y += 4
+  }
+
+  if (enemy1.x >= canvas.width) {
+    // enemy1.y = Math.floor(Math.random() * canvas.width);
+    enemy1.x = -40;
+  } else {
+    enemy1.x += 4;
   }
 }
 
@@ -491,14 +506,76 @@ function colisao() {
   }
 
   // Colisao do personagem com os pontos
-  /* if (
+  if (
     character.x < point1.x + point1.radio &&
     character.x + character.width > point1.x - point1.radio &&
     character.y < point1.y + point1.radio &&
     character.y + character.height > point1.y - point1.radio
   ) {
-    console.log((pontos += 1));
-  } */
+    pontos += 1;
+    point1.radio = 0;
+  }
+
+  if (
+    character.x < point2.x + point2.radio &&
+    character.x + character.width > point2.x - point2.radio &&
+    character.y < point2.y + point2.radio &&
+    character.y + character.height > point2.y - point2.radio
+  ) {
+    pontos += 1
+    point2.radio = 0;
+  }
+
+  if (
+    character.x < point3.x + point3.radio &&
+    character.x + character.width > point3.x - point3.radio &&
+    character.y < point3.y + point3.radio &&
+    character.y + character.height > point3.y - point3.radio
+  ) {
+    pontos += 1;
+    point3.radio = 0;
+  }
+
+  if (
+    character.x < point4.x + point4.radio &&
+    character.x + character.width > point4.x - point4.radio &&
+    character.y < point4.y + point4.radio &&
+    character.y + character.height > point4.y - point4.radio
+  ) {
+    pontos += 1;
+    point4.radio = 0;
+  }
+
+  if (
+    character.x < point5.x + point5.radio &&
+    character.x + character.width > point5.x - point5.radio &&
+    character.y < point5.y + point5.radio &&
+    character.y + character.height > point5.y - point5.radio
+  ) {
+    pontos += 1;
+    point5.radio = 0
+  }
+
+  // Colisao do personagem com os inimigos
+  if (
+    character.x < enemy.x + enemy.width &&
+    character.x + character.width > enemy.x &&
+    character.y < enemy.y + enemy.height &&
+    character.y + character.height > enemy.y
+  ) {
+    character.x = 15;
+    character.y = 1;
+  }
+
+  if (
+    character.x < enemy1.x + enemy1.width &&
+    character.x + character.width > enemy1.x &&
+    character.y < enemy1.y + enemy1.height &&
+    character.y + character.height > enemy1.y
+  ) {
+    character.x = 15;
+    character.y = 1;
+  }
 }
 
 function points() {
@@ -572,6 +649,7 @@ function desenha() {
     character.height
   );
 
+  ctx.fillStyle = 'white'
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
   ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.height);
 
@@ -590,4 +668,4 @@ function main() {
   desenha();
 }
 
-main();
+// main();
