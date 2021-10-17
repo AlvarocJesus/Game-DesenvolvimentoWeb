@@ -211,8 +211,6 @@ function movePlayer() {
     character.y = canvas.height - character.height;
   }
 
-  
-
   if (enemy.y >= canvas.height) {
     enemy.x = Math.floor(Math.random() * canvas.width);
     enemy.y = -40;
@@ -500,7 +498,7 @@ function colisao() {
     ctx.clearRect(0, 0, point1.radio, point1.radio);
     point1.x = -50;
   }
-  console.log(pontos)
+  console.log(pontos);
   if (
     character.x < point2.x + point2.radio &&
     character.x + character.width > point2.x - point2.radio &&
