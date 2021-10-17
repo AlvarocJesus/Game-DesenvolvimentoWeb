@@ -180,22 +180,22 @@ function collisionRectBackground() {
 function movePlayer() {
   // 87 -> w e 38 -> seta pra cima
   if (tecla === 87 || tecla === 38) {
-    character.y -= 1;
+    character.y -= 2;
   }
 
   // 65 -> a e 37 -> seta pra esquerda
   if (tecla === 65 || tecla === 37) {
-    character.x -= 1;
+    character.x -= 2;
   }
 
   // 83 -> s e 40 -> seta pra baixo
   if (tecla === 83 || tecla === 40) {
-    character.y += 1;
+    character.y += 2;
   }
 
   // 68 -> d e 39 -> seta pra direita
   if (tecla === 68 || tecla === 39) {
-    character.x += 1;
+    character.x += 2;
   }
 
   if (character.x <= 15) {
@@ -211,12 +211,7 @@ function movePlayer() {
     character.y = canvas.height - character.height;
   }
 
-  if (
-    character.x + character.width >= winner.x &&
-    character.y + character.height > winner.y
-  ) {
-    window.location.reload();
-  }
+  
 
   if (enemy.y >= canvas.height) {
     enemy.x = Math.floor(Math.random() * canvas.width);
@@ -502,9 +497,10 @@ function colisao() {
     character.y + character.height > point1.y - point1.radio
   ) {
     pontos += 1;
-    point1.radio = 0;
+    ctx.clearRect(0, 0, point1.radio, point1.radio);
+    point1.x = -50;
   }
-
+  console.log(pontos)
   if (
     character.x < point2.x + point2.radio &&
     character.x + character.width > point2.x - point2.radio &&
@@ -512,7 +508,8 @@ function colisao() {
     character.y + character.height > point2.y - point2.radio
   ) {
     pontos += 1;
-    point2.radio = 0;
+    ctx.clearRect(0, 0, point2.radio, point2.radio);
+    point2.x = -50;
   }
 
   if (
@@ -522,7 +519,8 @@ function colisao() {
     character.y + character.height > point3.y - point3.radio
   ) {
     pontos += 1;
-    point3.radio = 0;
+    ctx.clearRect(0, 0, point3.radio, point3.radio);
+    point3.x = -50;
   }
 
   if (
@@ -532,7 +530,8 @@ function colisao() {
     character.y + character.height > point4.y - point4.radio
   ) {
     pontos += 1;
-    point4.radio = 0;
+    ctx.clearRect(0, 0, point4.radio, point4.radio);
+    point4.x = -50;
   }
 
   if (
@@ -542,7 +541,8 @@ function colisao() {
     character.y + character.height > point5.y - point5.radio
   ) {
     pontos += 1;
-    point5.radio = 0;
+    ctx.clearRect(0, 0, point5.radio, point5.radio);
+    point5.x = -50;
   }
 
   // Colisao do personagem com os inimigos
@@ -648,6 +648,12 @@ function desenha() {
     ctx.beginPath();
     ctx.fillStyle = "yellow";
     ctx.fillRect(winner.x, winner.y, winner.width, winner.height);
+    if (
+      character.x + character.width >= winner.x &&
+      character.y + character.height > winner.y
+    ) {
+      window.location.reload();
+    }
   }
 
   window.requestAnimationFrame(desenha);
