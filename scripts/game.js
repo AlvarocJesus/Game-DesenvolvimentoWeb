@@ -666,5 +666,3 @@ function desenha() {
 function main() {
   desenha();
 }
-
-// main();
